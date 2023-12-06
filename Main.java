@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Main {
@@ -17,5 +18,9 @@ public class Main {
         map2.put("Key3", "Vlad");
         Service<String, String> service2 = new Service<>();
         service2.filter(map2, (k,v) -> k.contains("e") || v.contains("e"));
+
+        BiFunctionService<String, String, String> service3 = new BiFunctionService<>();
+        List<String> list = service3.uneste(map2, (k, v) -> k.concat(v));
+        System.out.println(list);
     }
 }
